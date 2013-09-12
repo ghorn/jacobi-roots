@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       157,          7]
-NotebookDataLength[     12225,        292]
-NotebookOptionsPosition[     11854,        274]
-NotebookOutlinePosition[     12211,        290]
-CellTagsIndexPosition[     12168,        287]
+NotebookDataLength[     12371,        294]
+NotebookOptionsPosition[     12000,        276]
+NotebookOutlinePosition[     12357,        292]
+CellTagsIndexPosition[     12314,        289]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -22,7 +22,7 @@ Notebook[{
 Cell[CellGroupData[{
 Cell[BoxData[{
  RowBox[{
-  RowBox[{"order", "=", "200"}], ";"}], "\[IndentingNewLine]", 
+  RowBox[{"order", "=", "300"}], ";"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{
    RowBox[{"precision", "=", "25"}], ";"}], "\[IndentingNewLine]", 
@@ -119,7 +119,7 @@ Cell[BoxData[{
     RowBox[{"\"\<-- | roots of shifted Jacobi polynomials with alpha=\>\"", "<>", 
      RowBox[{"ToString", "[", "\[Alpha]", "]"}], "<>", "\"\<, beta=\>\"", "<>", 
      RowBox[{"ToString", "[", "\[Beta]", "]"}], "<>", "\"\<\\n\>\""}]}], 
-   ";"}], "\n", "\[IndentingNewLine]", 
+   ";"}], "\[IndentingNewLine]", "\n", 
   RowBox[{"(*", 
    RowBox[{
     RowBox[{"typeSignature", "[", "name_", "]"}], ":=", 
@@ -249,9 +249,10 @@ Cell[BoxData[{
    3.5880148429148293`*^9}, {3.5880148848554173`*^9, 
    3.5880149096937437`*^9}, {3.588015249321007*^9, 3.588015250099921*^9}, {
    3.588015742672408*^9, 3.588015751994816*^9}, {3.58801578267706*^9, 
-   3.588015964903317*^9}, {3.5880160012766333`*^9, 3.588016029194995*^9}}],
+   3.588015964903317*^9}, {3.5880160012766333`*^9, 3.588016029194995*^9}, {
+   3.5880163126420937`*^9, 3.588016312947206*^9}}],
 
-Cell[BoxData["\<\"Radau roots computed in 26.945546 seconds\"\>"], "Output",
+Cell[BoxData["\<\"Radau roots computed in 99.155180 seconds\"\>"], "Output",
  CellChangeTimes->{
   3.5880141771904573`*^9, 3.588014379606248*^9, 3.588014422221437*^9, {
    3.588014530934038*^9, 3.588014551780951*^9}, 3.588014651040941*^9, {
@@ -259,9 +260,10 @@ Cell[BoxData["\<\"Radau roots computed in 26.945546 seconds\"\>"], "Output",
    3.588014818472938*^9, 3.5880148466863537`*^9}, 3.588014890897044*^9, 
    3.588014959037346*^9, 3.588015596428967*^9, 3.588015916598996*^9, {
    3.5880159517687273`*^9, 3.588015965603405*^9}, 3.588016008640575*^9, 
-   3.588016058468951*^9}],
+   3.588016058468951*^9, 3.5880164175632877`*^9, 3.588017582282074*^9}],
 
-Cell[BoxData["\<\"Legendre roots computed in 89.555676 seconds\"\>"], "Output",
+Cell[BoxData["\<\"Legendre roots computed in 362.251589 seconds\"\>"], \
+"Output",
  CellChangeTimes->{
   3.5880141771904573`*^9, 3.588014379606248*^9, 3.588014422221437*^9, {
    3.588014530934038*^9, 3.588014551780951*^9}, 3.588014651040941*^9, {
@@ -269,7 +271,7 @@ Cell[BoxData["\<\"Legendre roots computed in 89.555676 seconds\"\>"], "Output",
    3.588014818472938*^9, 3.5880148466863537`*^9}, 3.588014890897044*^9, 
    3.588014959037346*^9, 3.588015596428967*^9, 3.588015916598996*^9, {
    3.5880159517687273`*^9, 3.588015965603405*^9}, 3.588016008640575*^9, 
-   3.588016148024556*^9}]
+   3.588016058468951*^9, 3.5880164175632877`*^9, 3.58801794453237*^9}]
 }, Open  ]]
 },
 WindowSize->{807, 874},
@@ -290,9 +292,9 @@ CellTagsIndex->{}
 (*NotebookFileOutline
 Notebook[{
 Cell[CellGroupData[{
-Cell[579, 22, 10136, 229, 658, "Input"],
-Cell[10718, 253, 557, 8, 27, "Output"],
-Cell[11278, 263, 560, 8, 27, "Output"]
+Cell[579, 22, 10188, 230, 658, "Input"],
+Cell[10770, 254, 603, 8, 27, "Output"],
+Cell[11376, 264, 608, 9, 27, "Output"]
 }, Open  ]]
 }
 ]
