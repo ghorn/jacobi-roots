@@ -1,12 +1,12 @@
 name:                jacobi-roots
 version:             0.1.0.0
 synopsis:            roots of two shifted jacobi polynomials to double precision
--- description:         
+description:         This package provides pre-computed roots to the shifted Radau and Legendre polynomials. Roots to order of a few hundred are provided.
 license:             GPL-3
 license-file:        LICENSE
 author:              Greg Horn
 maintainer:          gregmainland@gmail.com
--- copyright:           
+copyright:           (c) 2013 Greg Horn
 category:            Math
 build-type:          Simple
 extra-source-files:  compute_roots.nb
