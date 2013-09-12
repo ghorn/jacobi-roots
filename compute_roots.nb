@@ -1,0 +1,258 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 8.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       157,          7]
+NotebookDataLength[      9279,        249]
+NotebookOptionsPosition[      8911,        231]
+NotebookOutlinePosition[      9268,        247]
+CellTagsIndexPosition[      9225,        244]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"order", "=", "200"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"precision", "=", "18"}], ";"}], "\[IndentingNewLine]", 
+  "\[IndentingNewLine]", 
+  RowBox[{"(*", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"makeRoots", "[", 
+      RowBox[{"\[Alpha]_", ",", "\[Beta]_"}], "]"}], ":=", 
+     RowBox[{"Table", "[", 
+      RowBox[{
+       RowBox[{"Sort", "[", 
+        RowBox[{"Re", "[", 
+         RowBox[{"x", "/.", 
+          RowBox[{"{", 
+           RowBox[{"ToRules", "[", 
+            RowBox[{"NRoots", "[", 
+             RowBox[{
+              RowBox[{"0", "==", 
+               RowBox[{"JacobiP", "[", 
+                RowBox[{"n", ",", "\[Alpha]", ",", "\[Beta]", ",", 
+                 RowBox[{
+                  RowBox[{"2", "x"}], "-", "1"}]}], "]"}]}], ",", "x", ",", 
+              RowBox[{"PrecisionGoal", "\[Rule]", "precision"}]}], "]"}], 
+            "]"}], "}"}]}], "]"}], "]"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"n", ",", "1", ",", "order"}], "}"}]}], "]"}]}], ";"}], 
+   "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{
+    RowBox[{"makeRoots", "[", 
+     RowBox[{"\[Alpha]_", ",", "\[Beta]_"}], "]"}], ":=", 
+    RowBox[{"Table", "[", 
+     RowBox[{
+      RowBox[{"Sort", "[", 
+       RowBox[{"Re", "[", 
+        RowBox[{"N", "[", 
+         RowBox[{
+          RowBox[{"x", "/.", 
+           RowBox[{"{", 
+            RowBox[{"ToRules", "[", 
+             RowBox[{"Roots", "[", 
+              RowBox[{
+               RowBox[{"0", "==", 
+                RowBox[{"JacobiP", "[", 
+                 RowBox[{"n", ",", "\[Alpha]", ",", "\[Beta]", ",", 
+                  RowBox[{
+                   RowBox[{"2", "x"}], "-", "1"}]}], "]"}]}], ",", "x"}], 
+              "]"}], "]"}], "}"}]}], ",", "precision"}], "]"}], "]"}], "]"}], 
+      ",", 
+      RowBox[{"{", 
+       RowBox[{"n", ",", "1", ",", "order"}], "}"}]}], "]"}]}], ";"}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{
+    RowBox[{"toHaskell", "[", "roots_", "]"}], " ", ":=", 
+    RowBox[{"StringReplace", "[", 
+     RowBox[{
+      RowBox[{"ToString", "[", "roots", "]"}], ",", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"\"\<{{\>\"", "\[Rule]", "\"\<  [ [\>\""}], ",", 
+        RowBox[{"\"\<{\>\"", "\[Rule]", "\"\<[\>\""}], ",", 
+        RowBox[{"\"\<},\>\"", "\[Rule]", "\"\<]\\n  ,\>\""}], ",", 
+        RowBox[{"\"\<}}\>\"", "\[Rule]", "\"\<]\\n  ]\\n\>\""}]}], "}"}]}], 
+     "]"}]}], ";"}], "\[IndentingNewLine]", "\[IndentingNewLine]", 
+  RowBox[{"(*", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"specialize", "[", 
+      RowBox[{"name_", ",", "type_"}], "]"}], ":=", 
+     RowBox[{
+     "\"\<{-# SPECIALIZE \>\"", "<>", "name", "<>", "\"\<Roots :: [[\>\"", "<>",
+       "type", "<>", "\"\<]] #-}\\n\>\""}]}], ";"}], 
+   "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{
+    RowBox[{"specialize", "[", 
+     RowBox[{"name_", ",", "type_"}], "]"}], ":=", "\"\<\>\""}], ";"}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{
+    RowBox[{"doc", "[", 
+     RowBox[{"name_", ",", "\[Alpha]_", ",", "\[Beta]_"}], "]"}], ":=", 
+    RowBox[{"\"\<-- | roots of shifted Jacobi polynomial with alpha=\>\"", "<>", 
+     RowBox[{"ToString", "[", "\[Alpha]", "]"}], "<>", "\"\<, beta=\>\"", "<>", 
+     RowBox[{"ToString", "[", "\[Beta]", "]"}], "<>", "\"\<\\n\>\""}]}], 
+   ";"}], "\n", "\[IndentingNewLine]", 
+  RowBox[{"(*", 
+   RowBox[{
+    RowBox[{"typeSignature", "[", "name_", "]"}], ":=", 
+    RowBox[{"name", "<>", "\"\<Roots :: Fractional a => [[a]]\\n\>\""}]}], 
+   "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"typeSignature", "[", "name_", "]"}], ":=", 
+   RowBox[{"name", "<>", "\"\<Roots :: [[Double]]\\n\>\""}]}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{
+    RowBox[{"writeFun", "[", 
+     RowBox[{"name_", ",", "\[Alpha]_", ",", "\[Beta]_"}], "]"}], ":=", 
+    RowBox[{
+     RowBox[{"doc", "[", 
+      RowBox[{"name", ",", "\[Alpha]", ",", "\[Beta]"}], "]"}], "<>", 
+     RowBox[{"specialize", "[", 
+      RowBox[{"name", ",", "\"\<Double\>\""}], "]"}], "<>", 
+     RowBox[{"specialize", "[", 
+      RowBox[{"name", ",", "\"\<Float\>\""}], "]"}], "<>", 
+     RowBox[{"typeSignature", "[", "name", "]"}], "<>", "name", "<>", 
+     "\"\<Roots =\\n\>\"", "<>", 
+     RowBox[{"toHaskell", "[", 
+      RowBox[{"makeRoots", "[", 
+       RowBox[{"\[Alpha]", ",", "\[Beta]"}], "]"}], "]"}]}]}], ";"}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{
+   "header", " ", "=", " ", 
+    "\"\<{-# OPTIONS_GHC -Wall #-}\\n\\nmodule JacobiRoots where\\n\>\""}], 
+   ";"}], "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"t0", "=", 
+   RowBox[{"AbsoluteTime", "[", "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"radauFun", "=", 
+   RowBox[{"writeFun", "[", 
+    RowBox[{"\"\<radau\>\"", ",", "1", ",", "0"}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"t1", "=", 
+   RowBox[{"AbsoluteTime", "[", "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"\"\<Radau roots computed in \>\"", "<>", 
+   RowBox[{"ToString", "[", 
+    RowBox[{"t1", "-", "t0"}], "]"}], "<>", "\"\< seconds\>\""}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"t0", "=", 
+   RowBox[{"AbsoluteTime", "[", "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"legendreFun", "=", 
+   RowBox[{"writeFun", "[", 
+    RowBox[{"\"\<legendre\>\"", ",", "0", ",", "0"}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"t1", "=", 
+   RowBox[{"AbsoluteTime", "[", "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"\"\<Legendre roots computed in \>\"", "<>", 
+   RowBox[{"ToString", "[", 
+    RowBox[{"t1", "-", "t0"}], "]"}], "<>", "\"\< seconds\>\""}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"module", "=", 
+    RowBox[{
+    "header", "<>", "\"\<\\n\>\"", "<>", "legendreFun", "<>", "\"\<\\n\>\"", "<>",
+      "radauFun"}]}], ";"}], "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"Export", "[", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"NotebookDirectory", "[", "]"}], "<>", 
+     "\"\<JacobiRoots.hs\>\""}], ",", "module", ",", "\"\<String\>\""}], 
+   "]"}], ";"}]}], "Input",
+ CellChangeTimes->CompressedData["
+1:eJwdzl1IUwEAxfGVWZI1aojiEt2k7qrZUicYWctyuZexaBUupEENbU7Q3CSx
+sQfNgfNj6NxyGrSSNabJmGMW5LJG5kcQBo6oERZGLXTYsuZW2uie+3D4vR3+
+7Gv10qqtNBqNTw4qJ9dLOyeWT0/G5OVwfffAJXj7r7MCnoknKaHX56iH8eZ6
+DWStdjfD2sSjFph47+qE9weWBmG1bMYGLdMH3fC6QjcJn8rGf/SSspP3xKEz
+aSXFRGrgy3dBaUmQCcWBYDasLC0+AHlm02G48MJ2FMbbhyhZHa4imKUKn4Bp
+0Zmz8FvG6wqYHptXQnplhFKY+N0FtbxID7SnCmr7SNvol+vg4hH3TeiWhW7B
+cOPnVhjMuquH94zbu2GPJjYC7Xy1G5p+cSfgpl3ih4UR3RQkRA1zkOl3foLS
+x4UhyPizQTeT7s/zpcHZMQcHSggtF3ZZWii9OcRJKI9xRPD4mk0MR9RTFyDh
+P1QD99KTVTBPmFkHr3A+NkB6qKmJ+i/b0EJhWZ0RLv5rG4QVGTQb5NY4nsO1
+4Z8v4Y75yBt4oy8egHpDyjvoOcVaho1L1hX4IKqJwdFVBcNCWj7szID5uR7K
+iw/pbCj2avLhypevRbBjblsJzB0TSeBsZvo5+Eqt6IYpfVWUJtuwBaqqP/TD
+npyEC+oKpB5ozouuQuvV8S13SAMyXip8u2+TslV/rB3aHQIDLCayv0OhKT8M
+d073JuD5Z1bKUd8TZj+6FxZZsJlhJGC6XVAA/wN+dcj9
+  "]],
+
+Cell[BoxData["\<\"Radau roots computed in 25.839692 seconds\"\>"], "Output",
+ CellChangeTimes->{{3.588008301535116*^9, 3.588008324069788*^9}, {
+   3.588008371873012*^9, 3.58800841818552*^9}, 3.588009060765332*^9, {
+   3.588009138846416*^9, 3.5880091520789022`*^9}, 3.588009389174107*^9, {
+   3.5880098953524714`*^9, 3.588009989260107*^9}, 3.588010045827496*^9, 
+   3.5880101877261267`*^9, 3.588011086723947*^9, 3.5880118753168373`*^9, 
+   3.58801204847338*^9, 3.588012275753058*^9, 3.588012323130677*^9, 
+   3.5880124154887447`*^9, 3.588012456368861*^9}],
+
+Cell[BoxData["\<\"Legendre roots computed in 94.342625 seconds\"\>"], "Output",
+ CellChangeTimes->{{3.588008301535116*^9, 3.588008324069788*^9}, {
+   3.588008371873012*^9, 3.58800841818552*^9}, 3.588009060765332*^9, {
+   3.588009138846416*^9, 3.5880091520789022`*^9}, 3.588009389174107*^9, {
+   3.5880098953524714`*^9, 3.588009989260107*^9}, 3.588010045827496*^9, 
+   3.5880101877261267`*^9, 3.588011086723947*^9, 3.5880118753168373`*^9, 
+   3.58801204847338*^9, 3.588012275753058*^9, 3.588012323130677*^9, 
+   3.5880124154887447`*^9, 3.588012550711295*^9}]
+}, Open  ]]
+},
+WindowSize->{807, 874},
+WindowMargins->{{23, Automatic}, {Automatic, 53}},
+FrontEndVersion->"8.0 for Mac OS X x86 (32-bit, 64-bit Kernel) (February 23, \
+2011)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[579, 22, 7199, 188, 628, "Input"],
+Cell[7781, 212, 554, 7, 27, "Output"],
+Cell[8338, 221, 557, 7, 27, "Output"]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)
