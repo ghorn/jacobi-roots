@@ -1,10 +1,10 @@
 {-# OPTIONS_GHC -Wall #-}
 
-module JacobiRoots ( legendreRoots, radauRoots ) where
+module JacobiRoots ( shiftedLegendreRoots, shiftedRadauRoots ) where
 
 -- | roots of shifted Jacobi polynomials with alpha=0, beta=0
-legendreRoots :: [[Double]]
-legendreRoots =
+shiftedLegendreRoots :: [[Double]]
+shiftedLegendreRoots =
   [ [0.5000000000000000000000000]
   , [0.2113248654051871177454256, 0.7886751345948128822545744]
   , [0.1127016653792583114820735, 0.5000000000000000000000000, 0.8872983346207416885179265]
@@ -208,8 +208,8 @@ legendreRoots =
   ]
 
 -- | roots of shifted Jacobi polynomials with alpha=1, beta=0
-radauRoots :: [[Double]]
-radauRoots =
+shiftedRadauRoots :: [[Double]]
+shiftedRadauRoots =
   [ [0.3333333333333333333333333]
   , [0.1550510257216821901802716, 0.6449489742783178098197284]
   , [0.08858795951270394739554614, 0.4094668644407347108649263, 0.7876594617608470560252419]
