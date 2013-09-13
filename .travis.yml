@@ -1,11 +1,11 @@
 language: haskell
 before_install:
-  - cabal configure --enable-tests
-  - cabal install --only-dependencies
+  - cabal install --enable-tests --only-dependencies
   #- sudo apt-get update -qq
   #- sudo apt-get install -qq libgsl0-dev liblapack-dev
 
 install:
+  - cabal configure --enable-tests
   - cabal build
 
 script:
