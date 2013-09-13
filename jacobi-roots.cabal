@@ -1,5 +1,5 @@
 name:                jacobi-roots
-version:             0.2.0.1
+version:             0.2.0.2
 license:             GPL-3
 license-file:        LICENSE
 author:              Greg Horn
@@ -18,7 +18,7 @@ description:
     .
     See the "JacobiRoots" module for documentation
     .
-    To build this from scratch, first run compute_roots.nb in Mathematica to generate gen/JacobiRootsRaw300.hs. Then type "make" to run gen/Convert.hs, which creates src/JacobiRootsBinary.hs. Then the normal "cabal configure; cabal build"
+    To build this from scratch, first run @compute_roots.nb@ in Mathematica to generate @gen\/JacobiRootsRaw300.hs@. Then type @make@ to run @gen\/Convert.hs@, which creates @src\/JacobiRootsBinary.hs@. Then the normal @cabal configure; cabal build@
 
 extra-source-files:  compute_roots.nb
                      gen/Convert.hs
