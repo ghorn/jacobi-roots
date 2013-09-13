@@ -43,5 +43,5 @@ test-suite doctests
   build-depends:       base,
                        doctest >= 0.8
   default-language:    Haskell2010
-  ghc-options:         -O2 -threaded
+  ghc-options:         -threaded
   hs-source-dirs:      tests
