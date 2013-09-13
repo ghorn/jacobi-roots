@@ -24,7 +24,7 @@ library
   hs-source-dirs:      src
   exposed-modules:     JacobiRoots
   other-modules:       JacobiRootsRaw
-  build-depends:       base >=4.6 && <4.7,
+  build-depends:       base,
                        vector
   default-language:    Haskell2010
   ghc-options:         -O2
