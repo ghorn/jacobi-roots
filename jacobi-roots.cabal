@@ -1,19 +1,43 @@
 name:                jacobi-roots
-version:             0.1.0.0
-synopsis:            roots of two shifted jacobi polynomials to double precision
-description:         This package provides pre-computed roots to the shifted Radau and Legendre polynomials. Roots to order of a few hundred are provided.
+version:             0.1.0.1
 license:             GPL-3
 license-file:        LICENSE
 author:              Greg Horn
 maintainer:          gregmainland@gmail.com
 copyright:           (c) 2013 Greg Horn
 category:            Math
+homepage:            http://github.com/ghorn/jacobi-roots
+bug-reports:         http://github.com/ghorn/jacobi-roots/issues
 build-type:          Simple
 extra-source-files:  compute_roots.nb
 cabal-version:       >=1.10
+synopsis:            Roots of two shifted Jacobi polynomials (Legendre and Radau) to double precision
+description:
+    This package provides roots of shifted Radau and Legendre polynomials to double precision.
+    .
+    The roots are precomputed using a Mathematica script, and degrees of up to a few hundred are provided.
+    .
+    See the "JacobiRoots" module for documentation
+
 
 library
+  hs-source-dirs:      src
   exposed-modules:     JacobiRoots
-  build-depends:       base >=4.6 && <4.7
+  other-modules:       JacobiRootsRaw
+  build-depends:       base >=4.6 && <4.7,
+                       vector
   default-language:    Haskell2010
   ghc-options:         -O2
+
+source-repository head
+  type: git
+  location: git://github.com/ghorn/jacobi-roots.git
+
+test-suite doctests
+  type:                exitcode-stdio-1.0
+  main-is:             doctests.hs
+  build-depends:       base,
+                       doctest >= 0.8
+  default-language:    Haskell2010
+  ghc-options:         -threaded
+  hs-source-dirs:      tests
