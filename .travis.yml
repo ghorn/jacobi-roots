@@ -1,5 +1,6 @@
 language: haskell
 before_install:
+  - make
   - cabal install --enable-tests --only-dependencies
   #- sudo apt-get update -qq
   #- sudo apt-get install -qq libgsl0-dev liblapack-dev
