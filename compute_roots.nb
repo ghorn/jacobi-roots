@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       157,          7]
-NotebookDataLength[     13382,        301]
-NotebookOptionsPosition[     13006,        283]
-NotebookOutlinePosition[     13364,        299]
-CellTagsIndexPosition[     13321,        296]
+NotebookDataLength[     14346,        313]
+NotebookOptionsPosition[     13970,        295]
+NotebookOutlinePosition[     14328,        311]
+CellTagsIndexPosition[     14285,        308]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -80,7 +80,7 @@ Cell[BoxData[{
  RowBox[{
   RowBox[{
    RowBox[{"funName", "[", "name_", "]"}], ":=", 
-   RowBox[{"\"\<allShifted\>\"", "<>", "name", "<>", "\"\<Roots\>\""}]}], 
+   RowBox[{"\"\<allShifted\>\"", "<>", "name", "<>", "\"\<RootsRaw\>\""}]}], 
   ";"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{
@@ -91,9 +91,7 @@ Cell[BoxData[{
       RowBox[{"ToString", "[", "roots", "]"}], ",", 
       RowBox[{"{", 
        RowBox[{
-        RowBox[{
-        "\"\<{{\>\"", "\[Rule]", 
-         "\"\<  V.fromList $ map V.fromList $\\n  [ []\\n  , [\>\""}], ",", 
+        RowBox[{"\"\<{{\>\"", "\[Rule]", "\"\<  [ []\\n  , [\>\""}], ",", 
         RowBox[{"\"\<{\>\"", "\[Rule]", "\"\<[\>\""}], ",", 
         RowBox[{"\"\<},\>\"", "\[Rule]", "\"\<]\\n  ,\>\""}], ",", 
         RowBox[{"\"\<}}\>\"", "\[Rule]", "\"\<]\\n  ]\\n\>\""}]}], "}"}]}], 
@@ -106,7 +104,7 @@ Cell[BoxData[{
     RowBox[{"\"\<-- | roots of shifted Jacobi polynomials with alpha=\>\"", "<>", 
      RowBox[{"ToString", "[", "\[Alpha]", "]"}], "<>", "\"\<, beta=\>\"", "<>", 
      RowBox[{"ToString", "[", "\[Beta]", "]"}], "<>", "\"\<\\n\>\""}]}], 
-   ";"}], "\[IndentingNewLine]", "\n", 
+   ";"}], "\n", "\[IndentingNewLine]", 
   RowBox[{"(*", 
    RowBox[{
     RowBox[{"typeSignature", "[", "name_", "]"}], ":=", 
@@ -119,7 +117,7 @@ Cell[BoxData[{
    RowBox[{"typeSignature", "[", "name_", "]"}], ":=", 
    RowBox[{
     RowBox[{"funName", "[", "name", "]"}], "<>", 
-    "\"\< :: V.Vector (V.Vector Double)\\n\>\""}]}], 
+    "\"\< :: [[Double]]\\n\>\""}]}], 
   "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{
@@ -140,10 +138,11 @@ Cell[BoxData[{
    RowBox[{"header", " ", "=", " ", 
     RowBox[{
     "\"\<\\\n{-# OPTIONS_GHC -Wall #-}\n\n-- | Module with raw data, \
-generated from Mathematica\\n\\nmodule JacobiRootsRaw ( \>\"", "<>", 
+generated from Mathematica\\n\\nmodule JacobiRootsRaw\>\"", "<>", 
+     RowBox[{"ToString", "[", "order", "]"}], "<>", "\"\< ( \>\"", "<>", 
      RowBox[{"funName", "[", "\"\<Legendre\>\"", "]"}], "<>", "\"\<, \>\"", "<>", 
      RowBox[{"funName", "[", "\"\<Radau\>\"", "]"}], "<>", 
-     "\"\< ) where\n\nimport qualified Data.Vector as V\n\>\""}]}], ";"}], 
+     "\"\< ) where\n\>\""}]}], ";"}], 
   "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{"t0", "=", 
@@ -188,8 +187,9 @@ generated from Mathematica\\n\\nmodule JacobiRootsRaw ( \>\"", "<>",
    RowBox[{
     RowBox[{
      RowBox[{"NotebookDirectory", "[", "]"}], "<>", 
-     "\"\<src/JacobiRootsRaw.hs\>\""}], ",", "module", ",", 
-    "\"\<String\>\""}], "]"}], ";"}]}], "Input",
+     "\"\<gen/JacobiRootsRaw\>\"", "<>", 
+     RowBox[{"ToString", "[", "order", "]"}], "<>", "\"\<.hs\>\""}], ",", 
+    "module", ",", "\"\<String\>\""}], "]"}], ";"}]}], "Input",
  CellChangeTimes->{{3.587987975710743*^9, 3.587988018967742*^9}, {
    3.587988140782954*^9, 3.58798815728058*^9}, {3.587988288124055*^9, 
    3.587988349210535*^9}, {3.587988379483639*^9, 3.587988428435318*^9}, {
@@ -243,9 +243,15 @@ generated from Mathematica\\n\\nmodule JacobiRootsRaw ( \>\"", "<>",
    3.5880535309152517`*^9}, {3.5880537119087257`*^9, 3.588053715411994*^9}, 
    3.588057517471484*^9, {3.588057587804565*^9, 3.588057627662592*^9}, {
    3.588057658967712*^9, 3.588057703410576*^9}, {3.5880577363170643`*^9, 
-   3.5880577586845617`*^9}, 3.5880585557306213`*^9}],
+   3.5880577586845617`*^9}, 3.5880585557306213`*^9, {3.588064533314286*^9, 
+   3.58806455128642*^9}, {3.588064695121482*^9, 3.5880646961299763`*^9}, {
+   3.588064790677484*^9, 3.588064790978847*^9}, {3.588064939633843*^9, 
+   3.588064948600685*^9}, {3.588065420861298*^9, 3.58806542302002*^9}, {
+   3.5880669915461607`*^9, 3.58806700833703*^9}, {3.5880670393550777`*^9, 
+   3.588067048968004*^9}, {3.5880671241013193`*^9, 3.588067131159873*^9}, {
+   3.5880672290497227`*^9, 3.588067229613203*^9}}],
 
-Cell[BoxData["\<\"Radau roots computed in 412.253551 seconds\"\>"], "Output",
+Cell[BoxData["\<\"Radau roots computed in 102.655302 seconds\"\>"], "Output",
  CellChangeTimes->{
   3.5880141771904573`*^9, 3.588014379606248*^9, 3.588014422221437*^9, {
    3.588014530934038*^9, 3.588014551780951*^9}, 3.588014651040941*^9, {
@@ -260,9 +266,12 @@ Cell[BoxData["\<\"Radau roots computed in 412.253551 seconds\"\>"], "Output",
    3.588053531424819*^9}, 3.588053715749647*^9, 3.5880554757821198`*^9, 
    3.588057597999413*^9, 3.588057629157517*^9, {3.588057685296475*^9, 
    3.5880577076867027`*^9}, 3.588057760554085*^9, 3.5880578072788057`*^9, 
-   3.5880589719227962`*^9}],
+   3.5880589719227962`*^9, 3.588064553163354*^9, 3.588064701928281*^9, 
+   3.5880647923135643`*^9, {3.588064940167183*^9, 3.588064949406036*^9}, 
+   3.58806583592706*^9, {3.5880670401113577`*^9, 3.588067051889412*^9}, 
+   3.588067133405834*^9, 3.588067335364573*^9}],
 
-Cell[BoxData["\<\"Legendre roots computed in 528.833587 seconds\"\>"], \
+Cell[BoxData["\<\"Legendre roots computed in 376.058679 seconds\"\>"], \
 "Output",
  CellChangeTimes->{
   3.5880141771904573`*^9, 3.588014379606248*^9, 3.588014422221437*^9, {
@@ -278,7 +287,10 @@ Cell[BoxData["\<\"Legendre roots computed in 528.833587 seconds\"\>"], \
    3.588053531424819*^9}, 3.588053715749647*^9, 3.5880554757821198`*^9, 
    3.588057597999413*^9, 3.588057629157517*^9, {3.588057685296475*^9, 
    3.5880577076867027`*^9}, 3.588057760554085*^9, 3.5880578072788057`*^9, 
-   3.588059500755142*^9}]
+   3.5880589719227962`*^9, 3.588064553163354*^9, 3.588064701928281*^9, 
+   3.5880647923135643`*^9, {3.588064940167183*^9, 3.588064949406036*^9}, 
+   3.58806583592706*^9, {3.5880670401113577`*^9, 3.588067051889412*^9}, 
+   3.588067133405834*^9, 3.588067711421949*^9}]
 }, Open  ]]
 },
 WindowSize->{1031, 975},
@@ -299,9 +311,9 @@ CellTagsIndex->{}
 (*NotebookFileOutline
 Notebook[{
 Cell[CellGroupData[{
-Cell[579, 22, 10270, 223, 613, "Input"],
-Cell[10852, 247, 1066, 15, 27, "Output"],
-Cell[11921, 264, 1069, 16, 27, "Output"]
+Cell[579, 22, 10754, 229, 553, "Input"],
+Cell[11336, 253, 1305, 18, 27, "Output"],
+Cell[12644, 273, 1310, 19, 27, "Output"]
 }, Open  ]]
 }
 ]

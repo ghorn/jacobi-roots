@@ -9,7 +9,6 @@ category:            Math
 homepage:            http://github.com/ghorn/jacobi-roots
 bug-reports:         http://github.com/ghorn/jacobi-roots/issues
 build-type:          Simple
-extra-source-files:  compute_roots.nb
 cabal-version:       >=1.10
 synopsis:            Roots of two shifted Jacobi polynomials (Legendre and Radau) to double precision
 description:
@@ -18,14 +17,19 @@ description:
     The roots are precomputed using a Mathematica script, and degrees of up to a few hundred are provided.
     .
     See the "JacobiRoots" module for documentation
-
+extra-source-files:  compute_roots.nb
+                     gen/Convert.hs
+                     gen/JacobiRootsRaw300.hs
+                     Makefile
 
 library
   hs-source-dirs:      src
   exposed-modules:     JacobiRoots
-  other-modules:       JacobiRootsRaw
+  other-modules:       JacobiRootsBinary
   build-depends:       base,
-                       vector
+                       vector,
+                       bytestring,
+                       binary
   default-language:    Haskell2010
   ghc-options:         -O2
 

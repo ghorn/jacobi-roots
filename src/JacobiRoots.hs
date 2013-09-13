@@ -31,10 +31,11 @@ module JacobiRoots
        , allShiftedRadauRoots
        ) where
 
-import JacobiRootsRaw ( allShiftedLegendreRoots, allShiftedRadauRoots )
-
+import Data.Binary ( decode )
 import qualified Data.Vector as V
 import Data.Vector ( (!?) )
+
+import JacobiRootsBinary ( allShiftedLegendreRootsBinary, allShiftedRadauRootsBinary )
 
 -- | get the roots of the Nth shifted Legendre polynomial
 --
@@ -63,3 +64,12 @@ shiftedLegendreRoots = (allShiftedLegendreRoots !?)
 -- Just (fromList [8.858795951270394e-2,0.4094668644407347,0.787659461760847])
 shiftedRadauRoots :: Int -> Maybe (V.Vector Double)
 shiftedRadauRoots = (allShiftedRadauRoots !?)
+
+
+-- | roots of shifted Jacobi polynomials with alpha=0, beta=0
+allShiftedLegendreRoots :: V.Vector (V.Vector Double)
+allShiftedLegendreRoots = V.fromList $ map V.fromList $ decode allShiftedLegendreRootsBinary
+
+-- | roots of shifted Jacobi polynomials with alpha=1, beta=0
+allShiftedRadauRoots :: V.Vector (V.Vector Double)
+allShiftedRadauRoots = V.fromList $ map V.fromList $ decode allShiftedRadauRootsBinary
