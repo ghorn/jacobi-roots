@@ -8,7 +8,7 @@ import JacobiRootsRaw300
 
 main :: IO ()
 main = do
-  writeFile "../src/JacobiRootsBinary.Hs" blah
+  writeFile "../src/JacobiRootsBinary.hs" blah
 
 blah :: String
 blah = unlines
