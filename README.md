@@ -1,7 +1,7 @@
 jacobi-roots
 ===
 
-[![Build Status](https://secure.travis-ci.org/ghorn/jacobi-roots.png?branch=master)](http://travis-ci.org/ghorn/jacobi-roots)
+[![Hackage](https://img.shields.io/hackage/v/jacobi-roots.svg)](https://hackage.haskell.org/package/jacobi-roots) [![Build Status](https://secure.travis-ci.org/ghorn/jacobi-roots.png?branch=master)](http://travis-ci.org/ghorn/jacobi-roots)
 
 This package provides roots of shifted Radau and Legendre polynomials to double precision.
 
