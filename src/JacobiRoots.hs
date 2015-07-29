@@ -3,9 +3,9 @@
 -- | Get the roots of shifted Legendre and Radau polynomials
 --
 -- >>> shiftedLegendreRoots 3
--- Just (fromList [0.11270166537925831,0.5,0.8872983346207417])
+-- Just [0.11270166537925831,0.5,0.8872983346207417]
 -- >>>  shiftedRadauRoots 2
--- Just (fromList [0.1550510257216822,0.6449489742783178])
+-- Just [0.1550510257216822,0.6449489742783178]
 --
 -- The roots are pre-computed and only a finite number are provided
 --
@@ -44,10 +44,10 @@ import JacobiRootsBinary ( allShiftedLegendreRootsBinary, allShiftedRadauRootsBi
 -- @
 --
 -- >>> mapM_ (print . shiftedLegendreRoots) [0..3]
--- Just (fromList [])
--- Just (fromList [0.5])
--- Just (fromList [0.2113248654051871,0.7886751345948129])
--- Just (fromList [0.11270166537925831,0.5,0.8872983346207417])
+-- Just []
+-- Just [0.5]
+-- Just [0.2113248654051871,0.7886751345948129]
+-- Just [0.11270166537925831,0.5,0.8872983346207417]
 shiftedLegendreRoots :: Int -> Maybe (V.Vector Double)
 shiftedLegendreRoots = (allShiftedLegendreRoots !?)
 
@@ -58,10 +58,10 @@ shiftedLegendreRoots = (allShiftedLegendreRoots !?)
 -- @
 --
 -- >>> mapM_ (print . shiftedRadauRoots) [0..3]
--- Just (fromList [])
--- Just (fromList [0.3333333333333333])
--- Just (fromList [0.1550510257216822,0.6449489742783178])
--- Just (fromList [8.858795951270394e-2,0.4094668644407347,0.787659461760847])
+-- Just []
+-- Just [0.3333333333333333]
+-- Just [0.1550510257216822,0.6449489742783178]
+-- Just [8.858795951270394e-2,0.4094668644407347,0.787659461760847]
 shiftedRadauRoots :: Int -> Maybe (V.Vector Double)
 shiftedRadauRoots = (allShiftedRadauRoots !?)
 
